@@ -1,55 +1,66 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: N/A -> 1.0.0
+Added sections: All principles and sections based on project requirements
+Removed sections: Template placeholders
+Modified principles: None (new creation)
+Templates requiring updates: ✅ Updated
+Follow-up TODOs: None
+-->
+# Full-Stack Todo Web Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Functionality First
+All 5 basic-level features implemented correctly: create, read, update, delete, and mark complete functionality for todos. Each feature must be fully operational before moving to the next priority.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. API Clarity
+RESTful endpoints fully documented and consistent, following standard HTTP methods and status codes. Endpoints return correct responses and handle errors gracefully.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Responsive Design
+Frontend usable across devices and screen sizes, built with Next.js 16+ App Router, ensuring responsive and accessible interfaces for desktop and mobile users.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Data Integrity
+All operations stored correctly in Neon Serverless PostgreSQL with schema normalized and secure. Data persists without corruption and follows proper database normalization principles.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Security-First Authentication
+Authentication implemented reliably using Better Auth, with user signup/signin fully functional. Authentication tokens and passwords handled securely with no plain text storage.
 
-### [PRINCIPLE_6_NAME]
+### VI. Separation of Concerns
 
 
-[PRINCIPLE__DESCRIPTION]
+Frontend/Backend separation maintained with clear API boundaries. Services remain modular and independently deployable while maintaining consistent interfaces.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technical Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### API Design Standards
+RESTful API design: endpoints follow standard HTTP methods (GET, POST, PUT, DELETE) and proper HTTP status codes. Python FastAPI with SQLModel ORM for backend, structured and modular code organization.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Frontend Standards
+Built with Next.js 16+ App Router, responsive and accessible design following WCAG guidelines. Component-based architecture with reusable elements and clean separation of presentation and business logic.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Backend Standards
+Python FastAPI with SQLModel ORM, structured and modular code organization. Proper error handling, request validation, and response formatting. Follows clean architecture principles.
+
+### Database Standards
+Neon Serverless PostgreSQL with normalized schema design and secure access patterns. Database migrations documented and reproducible. Proper indexing and query optimization for performance.
+
+### Authentication Standards
+User signup/signin fully functional with Better Auth. Secure token management, password hashing, and session handling. Proper authorization checks on all protected endpoints.
+
+## Development Practices
+
+### Code Quality Standards
+Spec-Driven Claude Code + Spec-Kit Plus adherence. Code passes linting and follows consistent formatting. Type safety where applicable and comprehensive error handling.
+
+### Testing Requirements
+Basic unit tests for backend endpoints and frontend components. Test coverage for all 5 basic Todo features. Integration tests for API endpoints and authentication flows.
+
+### Deployment Standards
+Project deployable locally and on cloud platforms. Environment configuration properly managed. Database migrations handled automatically during deployment.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs all development decisions for the Full-Stack Todo Web Application. All code changes must align with these principles. Amendments require documentation of the change, justification for deviation from existing principles, and approval from project stakeholders. All PRs/reviews must verify compliance with these principles before merging.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-19 | **Last Amended**: 2026-01-19
