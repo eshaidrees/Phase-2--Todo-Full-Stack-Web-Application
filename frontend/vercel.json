@@ -16,3 +16,8 @@
     "NEXT_PUBLIC_API_BASE_URL": "https://huggingface.co/spaces/eshaidrees/todo-app-backend" 
   }
 }
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
