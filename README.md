@@ -110,12 +110,7 @@ The application will be available at `http://localhost:3000`.
 2. Select FastAPI as the framework (use Docker option).
 3. Push your backend repository to Hugging Face or link via GitHub.
 4. Create a Dockerfile in the backend root:
-<details> <summary>Example copy-paste box</summary>
-npm install
-# or
-yarn install
 
-</details>
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -124,7 +119,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install argon2_cffi
 
-COPY . .
 
 EXPOSE 8000
 CMD ["uvicorn", "src.main:app", "--host=0.0.0.0", "--port=8000"]
