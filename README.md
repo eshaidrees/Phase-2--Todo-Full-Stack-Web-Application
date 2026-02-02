@@ -103,23 +103,46 @@ The application will be available at `http://localhost:3000`.
    git branch -M main
    git push -u origin main
    ```
+Backend Deployment on Hugging Face
 
-### Backend Deployment (Render)
+1. Sign in to Hugging Face
+   and create a new Space.
 
-1. Create an account on [Render](https://render.com)
-2. Connect your GitHub repository
-3. Create a new Web Service
-4. Select your repository
-5. Set the environment to "Python"
-6. Set the build command: `pip install -r requirements.txt`
-7. Set the start command: `uvicorn src.main:app --host=0.0.0.0 --port=$PORT`
-8. Add environment variables:
-   - `SECRET_KEY`: Your secret key
-   - `ALGORITHM`: HS256
-   - `ACCESS_TOKEN_EXPIRE_MINUTES`: 30
-   - `DATABASE_URL`: Your PostgreSQL connection string
-   - `ALLOWED_ORIGINS`: Your frontend URL (e.g., https://your-frontend.vercel.app)
-9. Deploy the service
+2. Select FastAPI as the framework (use Docker option).
+
+3. Push your backend repository to Hugging Face or link via GitHub.
+
+4. Create a Dockerfile in the backend root:
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install argon2_cffi
+
+COPY . .
+
+EXPOSE 8000
+CMD ["uvicorn", "src.main:app", "--host=0.0.0.0", "--port=8000"]
+
+
+5. Add environment variables in the Hugging Face Space settings:
+
+DATABASE_URL
+
+SECRET_KEY
+
+ALGORITHM
+
+ACCESS_TOKEN_EXPIRE_MINUTES
+
+ALLOWED_ORIGINS (your frontend URL)
+
+6. Deploy the Space. Hugging Face will build the Docker image and run your backend automatically.
+
+Note: Ensure your Task and User models provide id, created_at, and updated_at fields when creating new objects to avoid SQLModel default_factory errors. Install argon2_cffi for password hashing to prevent login failures.
 
 ### Frontend Deployment (Vercel)
 
