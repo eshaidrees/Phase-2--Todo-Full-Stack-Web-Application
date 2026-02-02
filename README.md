@@ -103,17 +103,19 @@ The application will be available at `http://localhost:3000`.
    git branch -M main
    git push -u origin main
    ```
-Backend Deployment on Hugging Face
+### Backend Deployment on Hugging Face
 
 1. Sign in to Hugging Face
    and create a new Space.
-
 2. Select FastAPI as the framework (use Docker option).
-
 3. Push your backend repository to Hugging Face or link via GitHub.
-
 4. Create a Dockerfile in the backend root:
+<details> <summary>Example copy-paste box</summary>
+npm install
+# or
+yarn install
 
+</details>
 FROM python:3.11-slim
 
 WORKDIR /app
